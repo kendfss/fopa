@@ -11,14 +11,14 @@ import (
 )
 
 func printChars() {
-	print("var forbiddenChars = []string{")
+	fmt.Print("var forbiddenChars = []string{")
 	for i, char := range fopa.ForbiddenChars() {
 		if i > 0 {
-			print(", ")
+			fmt.Print(", ")
 		}
 		fmt.Printf("%q", char)
 	}
-	print("}\n")
+	fmt.Print("}\n")
 }
 
 func copy_() {
