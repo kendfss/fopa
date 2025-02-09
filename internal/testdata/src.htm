@@ -1,0 +1,1004 @@
+<!DOCTYPE HTML><html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Characters to Avoid in Filenames and Directories | Michigan Tech</title>
+      <meta name="Description" content="Your web files will be viewed by numerous users who use a wide variety of operating systems and devices. It is essential to avoid common illegal directory and filename characters.">
+      <meta name="Keywords" content="characters, avoid, directories, files, filenames, rules, guides, guidelines, policies, tips, good filenames, bad filenames, illegal, legal, common, cms, resources, university marketing and communications, michigan tech">
+      
+
+
+<!-- <link type="text/css" rel="stylesheet" href="//www.mtu.edu/mtu_resources/styles/n/normalize.css" /> -->
+<!-- <link type="text/css" rel="stylesheet" href="//www.mtu.edu/mtu_resources/styles/n/base.css" /> -->
+<link type="text/css" rel="stylesheet" href="//www.mtu.edu/mtu_resources/styles/n/base.css" />
+
+<!-- this is the headcode include -->
+<!--<link rel="stylesheet" href="/_resources/css/oustyles.css" />-->
+
+<link href="//www.mtu.edu/mtu_resources/styles/n/print.css" type="text/css" rel="stylesheet" media="print" />
+<script>/**
+ * +------------------------------------------------------------------------+
+ * | Global Settings                                                        |
+ * +------------------------------------------------------------------------+
+ */
+(function() {
+	// TODO: Fix if the user has switched their system preferences. 
+	// Only set cookie in settings page.	
+	function setFontSize(value) {
+		if (value) {
+			document.documentElement.classList.remove(window.mtuFontSize);
+			document.documentElement.classList.add(value);
+			window.mtuFontSize = value;
+		}
+	}
+
+	function setReducedMotion(value) {
+		if (value) {
+			document.documentElement.classList.add("reduce-animations");
+		} else {
+			document.documentElement.classList.remove("reduce-animations");
+		}
+	}
+
+	function setTheme(value) {
+		if (value) {
+			document.documentElement.classList.remove(window.mtuTheme);
+			document.documentElement.classList.add(value);
+			window.mtuTheme = value;
+		}
+	}
+	
+	const animQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+	const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+	let mtuAnimations;
+	let mtuFontSize;
+	let mtuTheme;
+
+	try {
+		mtuAnimations = localStorage.getItem("mtuAnimations");
+		mtuFontSize = localStorage.getItem("mtuFontSize");
+		mtuTheme = localStorage.getItem("mtuTheme");
+	} catch (error) {
+		console.error(error);
+		return;
+	}
+
+	setFontSize(mtuFontSize);
+	setReducedMotion(mtuAnimations === "reduced" || animQuery.matches);
+
+	if (mtuTheme === "system") {
+		mtuTheme = darkQuery.matches ? "dark" : "light";
+	}
+
+	if (mtuTheme === "dark") {
+		const link = document.createElement("link");
+		link.href = "/mtu_resources/assets/css/app-dark.css";
+		link.rel = "stylesheet";
+		link.type = "text/css";
+
+		document.head.append(link);
+	}
+
+	setTheme(mtuTheme);
+})();
+
+/**
+ * +------------------------------------------------------------------------+
+ * | Global Header and Navigation                                           |
+ * +------------------------------------------------------------------------+
+ */
+(function() {
+	function adjustNav() {
+		let navBar = document.querySelector('.nav-bar');
+		if (navBar) {
+			let navCount = navBar.querySelectorAll('.menu_item').length;
+			let height = navBar.clientHeight;	
+
+			if (height > 50) {
+			  navBar.style.setProperty('--navCount', navCount);
+			  navBar.classList.add('nav-tall');
+			} else {
+			  navBar.style.removeProperty('--navCount');
+			  navBar.classList.remove('nav-tall');
+			}	
+		}
+	}
+	
+	// Adjust header height right away.
+	adjustNav();
+	
+	// Re-adjust header height as content loads.
+	window.addEventListener("DOMContentLoaded", adjustNav);
+	window.addEventListener("load", adjustNav);
+	
+	// Setting up some space for items after the nav to be seen.
+	function onResize() {
+		let header = document.querySelector(".nav, .mtu-nav");
+		let headerHeight;
+		
+		if (header) {
+			headerHeight = header.clientHeight + "px";
+			document.documentElement.style.setProperty("--mtu-header-height", headerHeight);
+		}
+	}
+	
+	// Create --mtu-header-height now.
+	onResize();
+	
+	// Update --mtu-header-height on load.
+	window.addEventListener("DOMContentLoaded", onResize);
+	window.addEventListener("load", onResize);
+	
+	// Update --mtu-header-height on resize.
+	let frameId;
+	window.addEventListener("resize", function() {
+		// Debounce the resize event.
+		if (frameId) {
+			window.cancelAnimationFrame(frameId);
+		}
+		
+		frameId = window.requestAnimationFrame(onResize);
+	});
+})();
+
+/**
+ * Defers execution of the given function until after jQuery is loaded.
+ */
+function defer(fn) {
+	if (window.jsSet) {
+		fn();
+		return;
+	}
+	
+	setTimeout(function() {
+		defer(fn);
+	}, 100);
+}
+</script><meta property="mtu:ou_content_type" content="generic">
+      <meta property="mtu:ou_content_id" content="16f10e47-2b44-48c8-a573-484ada34fd0b">
+      <meta property="og:title" content="Characters to Avoid in Filenames and Directories | Michigan Tech">
+      <meta property="og:description" content="Your web files will be viewed by numerous users who use a wide variety of operating systems and devices. It is essential to avoid common illegal directory and filename characters.">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://www.mtu.edu/umc/services/websites/writing/characters-avoid/">
+      <meta property="og:site_name" content="Michigan Technological University">
+      <meta property="fb:pages" content="5652694310">
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:site" content="@michigantech">
+      <meta name="twitter:creator" content="@michigantech">
+      <meta name="twitter:title" content="Characters to Avoid in Filenames and Directories | Michigan Tech">
+      <meta name="twitter:url" content="https://www.mtu.edu/umc/services/websites/writing/characters-avoid/">
+      <meta name="twitter:description" content="Your web files will be viewed by numerous users who use a wide variety of operating systems and devices. It is essential to avoid common illegal directory and filename characters.">
+      <link rel="canonical" href="https://www.mtu.edu/umc/services/websites/writing/characters-avoid/">						
+												<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "4cbec909ec124cac8f7110866bebaf1a"}'></script><!-- End Cloudflare Web Analytics -->
+												<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebPage",
+"mainEntityOfPage": "https://www.mtu.edu/umc/services/websites/writing/characters-avoid/",
+"name": "Characters to Avoid in Filenames and Directories",
+"headline": "Characters to Avoid in Filenames and Directories",
+"abstract": "Your web files will be viewed by numerous users who use a wide variety of operating systems and devices. It is essential to avoid common illegal directory and filename characters.",
+"speakable": "Your web files will be viewed by numerous users who use a wide variety of operating systems and devices. It is essential to avoid common illegal directory and filename characters.",
+"image": [
+"https://www.mtu.edu/umc/services/websites/seo/search-banner450.jpg",
+"https://www.mtu.edu/umc/services/websites/seo/search-square500.jpg",
+"https://www.mtu.edu/umc/services/websites/seo/search-square250.jpg"
+],
+"datePublished": "2021-10-04T08:00:00+05:00",
+"dateModified": "2023-11-07T11:20:20+05:00",
+"lastReviewed": "2023-11-07T11:20:20+05:00",
+"reviewedBy": {
+"@type": "Organization",
+"name": "Michigan Technological University",
+"url": "https://www.mtu.edu"
+},
+"author": {
+"@type": "Organization",
+"name": "Michigan Technological University",
+"knowsAbout":"Websites",
+"url": "https://www.mtu.edu"
+},
+"publisher": {
+"@type": "Organization",
+"name": "Michigan Technological University",
+"logo": {
+"@type": "ImageObject",
+"url": "https://www.mtu.edu/images/michigan-tech-logo.jpg"
+}
+}
+}
+</script><script>
+window.dataLayer = window.dataLayer || [];
+if(window.devicePixelRatio > 1.5) {
+	dataLayer.push({'retina':'true'});
+} else {
+	dataLayer.push({'retina':'false'});
+}
+let theme = localStorage.getItem('mtuTheme') || 'light';
+let animations = localStorage.getItem('mtuAnimations') || 'no-preference';
+let fontSize = localStorage.getItem('mtuFontSize') || 'font-normal';
+
+dataLayer.push({'themes':theme,'animations':animations,'font_size':fontSize});
+dataLayer.push({'internalExternal' : 'external'});
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://gtm-tagging-1.mtu.edu/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K6W7S4L9');</script>
+<!-- End Google Tag Manager -->
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="preload" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet" /></head>
+   <body>
+      <div aria-atomic="true" aria-live="polite" class="sr-only" id="sr-announcements" role="status"></div>
+      <div class="stick"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-dark-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0.49803921568627" /><feFuncG type="table" tableValues="0 0.49803921568627" /><feFuncB type="table" tableValues="0 0.49803921568627" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-grayscale"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.54901960784314 0.98823529411765" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.71764705882353 0.25490196078431" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-red"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 1" /><feFuncG type="table" tableValues="0 0.27843137254902" /><feFuncB type="table" tableValues="0.5921568627451 0.27843137254902" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-midnight"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0 0" /><feFuncG type="table" tableValues="0 0.64705882352941" /><feFuncB type="table" tableValues="0 1" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-magenta-yellow"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.78039215686275 1" /><feFuncG type="table" tableValues="0 0.94901960784314" /><feFuncB type="table" tableValues="0.35294117647059 0.47058823529412" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-purple-green"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.65098039215686 0.40392156862745" /><feFuncG type="table" tableValues="0 1" /><feFuncB type="table" tableValues="0.44705882352941 0.4" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;" ><defs><filter id="wp-duotone-blue-orange"><feColorMatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 " /><feComponentTransfer color-interpolation-filters="sRGB" ><feFuncR type="table" tableValues="0.098039215686275 1" /><feFuncG type="table" tableValues="0 0.66274509803922" /><feFuncB type="table" tableValues="0.84705882352941 0.41960784313725" /><feFuncA type="table" tableValues="1 1" /></feComponentTransfer><feComposite in2="SourceGraphic" operator="in" /></filter></defs></svg>
+
+<section aria-label="skip links">
+	<div class="skip-links" id="skip">
+		<a href="#main">Skip to page content</a>
+		<a href="#mtu-footer">Skip to footer navigation</a>
+	</div>
+</section>
+
+<header class="mtu-nav">
+    <div class="pre-nav-wrapper background-black">
+        <div class="pre-nav">
+            <button class="mobile-menu-button hide-for-desktop"
+                    data-inactive>
+                <span class="mobile-button-text">Menu</span>
+            </button>
+
+            <div class="pre-nav-logo">
+                <a class="pre-nav-logo-link" href="https://www.mtu.edu">
+                    <img alt="Michigan Tech Logo"
+                         class="pre-nav-logo-image"
+                         src="https://www.mtu.edu/mtu_resources/images/logos/michigan-tech-logo-full-yellow.svg"
+                         width="255"
+                         height="45" />
+                </a>
+            </div>
+
+            <div class="audience-search display-audience show-for-desktop">
+                <div class="audience-wrapper show-for-desktop">
+                    <ul aria-label="Audiences"
+                        class="audience-nav">
+                        <li class="menu_item">
+                                <a class="menu_link"
+                                   href="https://www.mtu.edu/current/">
+                                    Students
+                                </a>
+                            </li><li class="menu_item">
+                                <a class="menu_link"
+                                   href="https://www.mtu.edu/faculty-staff/">
+                                    Faculty/Staff
+                                </a>
+                            </li><li class="menu_item">
+                                <a class="menu_link"
+                                   href="https://www.mtu.edu/alumni/">
+                                    Alumni
+                                </a>
+                            </li><li class="menu_item">
+                                <a class="menu_link"
+                                   href="https://www.mtu.edu/parentsfamily/">
+                                    Parents
+                                </a>
+                            </li><li class="menu_item">
+                                <a class="menu_link"
+                                   href="https://www.mtu.edu/industry/">
+                                    Industry
+                                </a>
+                            </li> 
+
+                        <li class="menu_item tech-links">
+                            <div class="menu_link">
+                                Tech Links
+                            </div>
+
+                            <button aria-label="Open sub-menu"
+                                    class="submenu-button arrow"></button>
+
+                            <ul class="tech-links-menu menu_submenu">
+    <li class="submenu_item">
+        <a class="link-az" href="/a2z/index.html">
+            A to Z
+        </a>
+    </li>
+
+    <li class="submenu_item">
+        <a class="link-banweb" href="https://banweb.mtu.edu/">
+            Banweb
+        </a>
+    </li>
+
+    <li class="submenu_item">
+        <a class="link-map" href="https://map.mtu.edu/?id=1308">
+            Campus Map
+        </a>
+    </li>
+
+    <li class="submenu_item">
+        <a class="link-canvas" href="https://mtu.instructure.com/">
+            Canvas
+        </a>
+    </li>
+
+    <li class="submenu_item">
+        <a class="link-email" href="https://mail.google.com/a/mtu.edu/">
+            Email
+        </a>
+    </li>
+    
+    <li class="submenu_item">
+        <a class="link-mymt" href="https://www.mtu.edu/experience/">
+            Experience
+        </a>
+    </li>
+
+    <li class="submenu_item">
+        <a class="link-sds" href="https://www.mtu.edu/sds/">
+            Safety Data Sheets
+        </a>
+    </li>
+	
+	<li class="submenu_item">
+		<a class="link-settings" href="/site-settings/index.html">
+			Website Settings
+		</a>
+	</li>
+</ul>
+                        </li>
+                    </ul>
+                </div>
+
+				<!-- Google Tag Manager (noscript) -->
+<noscript aria-hidden="true"><iframe src="https://gtm-tagging-1.mtu.edu/ns.html?id=GTM-K6W7S4L9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	<div class="desktop-search-bar search-bar show-for-desktop">
+		<form action="https://www.mtu.edu/search/" class="search-fields invisible">
+				<label for="desktop-search">
+					Search
+				</label>
+	
+			<input class="search-text"
+				id="desktop-search"
+				name="q"
+				type="search" />
+	
+			<button class="search-clear">
+				Clear Search Input
+			</button>
+	
+			<label for="search-options" hidden>
+				Search Category
+			</label>
+	
+			<select class="search-options" id="search-options">
+				<option value="mtu">
+					Michigan Tech
+				</option>
+				 
+				<option data-action="https://www.mtu.edu/umc/" data-name="s" value="site">
+					This Site
+				</option>
+								<option data-action="https://www.mtu.edu/majors/" value="programs">
+					Programs
+				</option>
+	
+				<option value="directory">
+					Directory
+				</option>
+			</select>
+	
+			<button class="search-button" type="submit">
+				Go
+			</button>
+		</form>
+	
+		<button aria-expanded="false" class="search-toggle-button">
+			Open Search
+		</button>
+	</div>
+	            </div>
+        </div>
+    </div>
+
+   <nav class="nav-bar show-for-desktop">
+      <ul class="menu" aria-label="Main Navigation">
+      <li class="menu_item menu_has-submenu"><a href="/umc/services/" class="menu_link">Services</a><button class="submenu-button arrow" aria-expanded="false" aria-label="Services sub-menu"></button>
+<ul class="menu_submenu"><li class="submenu_item"><a class="submenu_link" href="/umc/services/marketing/" aria-label="Marketing and Creative Services"><span>Marketing and Creative</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/brand/" aria-label="Brand Management Services"><span>Brand Management</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/photo-video/" aria-label="Photography and Video Services"><span>Photography and Video</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/media/" aria-label="News and Media Relations Services"><span>News and Media Relations</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/social/" aria-label="Social Media Services"><span>Social Media</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/websites/" aria-label="Websites Services"><span>Websites</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/print/"><span>Print Services</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/mail/"><span>Mail Services</span></a>
+</li></ul>
+</li><li class="menu_item menu_has-submenu"><a href="/umc/resources/" class="menu_link">Downloads and Resources</a><button class="submenu-button arrow" aria-expanded="false" aria-label="Downloads and Resources sub-menu"></button>
+<ul class="menu_submenu"><li class="submenu_item"><a class="submenu_link" href="/umc/resources/download/"><span>Logos, Templates, and Icons</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/digital-decorations/"><span>Digital Decorations</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/social-assets/"><span>Social Assets</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/brand/"><span>Brand Guide</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/editorial/"><span>Editorial Guide</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/social-media/"><span>Social Media Field Guide</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/student-org/student-org-logo-guide.pdf"><span>Student Organization Logo Guide</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/about/facts/"><span>University Facts</span></a>
+</li></ul>
+</li><li class="menu_item menu_has-submenu"><a href="/umc/services/media/" class="menu_link">News and Media</a><button class="submenu-button arrow" aria-expanded="false" aria-label="News and Media sub-menu"></button>
+<ul class="menu_submenu"><li class="submenu_item"><a class="submenu_link" href="/news/"><span>Michigan Tech News</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/unscripted/"><span>Unscripted: Science and Engineering Research</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/magazine/"><span>Michigan Tech Magazine</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/magazine/research/"><span>Research Magazine</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/stories/"><span>Stories from Husky Nation</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/ttoday/"><span>Tech Today</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/news/subscribe/"><span>Subscribe to Our News</span></a>
+</li></ul>
+</li><li class="menu_item menu_has-submenu"><a href="/umc/staff/" class="menu_link">Staff Directory</a><button class="submenu-button arrow" aria-expanded="false" aria-label="Staff Directory sub-menu"></button>
+<ul class="menu_submenu"><li class="submenu_item"><a class="submenu_link" href="/umc/staff/alphabetized/"><span>Alphabetized Staff Listing</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/administration/"><span>Administration</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/brand/" aria-label="Brand Management Staff"><span>Brand Management</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/mail/" aria-label="Mail Services Staff"><span>Mail Services</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/marketing/" aria-label="Marketing and Creative Staff"><span>Marketing and Creative</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/media/" aria-label="News and Media Relations Staff"><span>News and Media Relations</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/photo-video/" aria-label="Photography and Video Staff"><span>Photography and Video</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/print/" aria-label="Print Services Staff"><span>Print Services</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/social/" aria-label="Social Media Staff"><span>Social Media</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/websites/" aria-label="Websites Staff"><span>Websites</span></a>
+</li></ul>
+</li><li class="menu_item"><a href="/umc/about/process/" class="menu_link">About UMC</a>
+</li><li class="menu_item menu_item-yellow"><a href="/umc/connect/" class="menu_link">Connect with Us</a>
+</li>      </ul>
+   </nav>
+
+    <nav class="offscreen-nav invisible">
+      <div class="mobile-search-bar search-bar">
+	<form action="https://www.mtu.edu/search/">
+		<label for="mobile-search"
+			   hidden>
+			Search
+		</label>
+
+		<input class="search-text"
+			   id="mobile-search"
+			   name="q"
+			   placeholder="Search"
+			   type="search" />
+
+		<button class="search-clear">
+			Clear Search Input
+		</button>
+
+		<label for="mobile-search-options"
+			   hidden>
+			Search Category
+		</label>
+
+		<select class="search-options"
+				id="mobile-search-options">
+			<option value="mtu">
+				Michigan Tech
+			</option>
+
+			 
+			<option data-action="https://www.mtu.edu/umc/" data-name="s" value="site">
+				This Site
+			</option>
+			
+			<option data-action="https://www.mtu.edu/majors"
+					value="programs">
+				Programs
+			</option>
+
+			<option value="directory">
+				Directory
+			</option>
+		</select>
+
+		<button class="search-button"
+				type="submit">
+			Search
+		</button>
+	</form>
+</div>
+        
+
+        <ul class="menu"
+            aria-label="Main Navigation">
+
+           
+            <li class="menu_item menu_has-submenu"><a href="/umc/services/" class="menu_link">Services</a><button class="submenu-button arrow" aria-expanded="false" aria-label="Services sub-menu"></button>
+<ul class="menu_submenu"><li class="submenu_item"><a class="submenu_link" href="/umc/services/marketing/" aria-label="Marketing and Creative Services"><span>Marketing and Creative</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/brand/" aria-label="Brand Management Services"><span>Brand Management</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/photo-video/" aria-label="Photography and Video Services"><span>Photography and Video</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/media/" aria-label="News and Media Relations Services"><span>News and Media Relations</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/social/" aria-label="Social Media Services"><span>Social Media</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/websites/" aria-label="Websites Services"><span>Websites</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/print/"><span>Print Services</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/services/mail/"><span>Mail Services</span></a>
+</li></ul>
+</li><li class="menu_item menu_has-submenu"><a href="/umc/resources/" class="menu_link">Downloads and Resources</a><button class="submenu-button arrow" aria-expanded="false" aria-label="Downloads and Resources sub-menu"></button>
+<ul class="menu_submenu"><li class="submenu_item"><a class="submenu_link" href="/umc/resources/download/"><span>Logos, Templates, and Icons</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/digital-decorations/"><span>Digital Decorations</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/social-assets/"><span>Social Assets</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/brand/"><span>Brand Guide</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/editorial/"><span>Editorial Guide</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/social-media/"><span>Social Media Field Guide</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/resources/student-org/student-org-logo-guide.pdf"><span>Student Organization Logo Guide</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/about/facts/"><span>University Facts</span></a>
+</li></ul>
+</li><li class="menu_item menu_has-submenu"><a href="/umc/services/media/" class="menu_link">News and Media</a><button class="submenu-button arrow" aria-expanded="false" aria-label="News and Media sub-menu"></button>
+<ul class="menu_submenu"><li class="submenu_item"><a class="submenu_link" href="/news/"><span>Michigan Tech News</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/unscripted/"><span>Unscripted: Science and Engineering Research</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/magazine/"><span>Michigan Tech Magazine</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/magazine/research/"><span>Research Magazine</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/stories/"><span>Stories from Husky Nation</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/ttoday/"><span>Tech Today</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/news/subscribe/"><span>Subscribe to Our News</span></a>
+</li></ul>
+</li><li class="menu_item menu_has-submenu"><a href="/umc/staff/" class="menu_link">Staff Directory</a><button class="submenu-button arrow" aria-expanded="false" aria-label="Staff Directory sub-menu"></button>
+<ul class="menu_submenu"><li class="submenu_item"><a class="submenu_link" href="/umc/staff/alphabetized/"><span>Alphabetized Staff Listing</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/administration/"><span>Administration</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/brand/" aria-label="Brand Management Staff"><span>Brand Management</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/mail/" aria-label="Mail Services Staff"><span>Mail Services</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/marketing/" aria-label="Marketing and Creative Staff"><span>Marketing and Creative</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/media/" aria-label="News and Media Relations Staff"><span>News and Media Relations</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/photo-video/" aria-label="Photography and Video Staff"><span>Photography and Video</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/print/" aria-label="Print Services Staff"><span>Print Services</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/social/" aria-label="Social Media Staff"><span>Social Media</span></a>
+</li><li class="submenu_item"><a class="submenu_link" href="/umc/staff/websites/" aria-label="Websites Staff"><span>Websites</span></a>
+</li></ul>
+</li><li class="menu_item"><a href="/umc/about/process/" class="menu_link">About UMC</a>
+</li><li class="menu_item menu_item-yellow"><a href="/umc/connect/" class="menu_link">Connect with Us</a>
+</li>    
+            <li class="menu_item menu_has-submenu menu_item-black">
+                <div class="menu_link">
+                    Info For . . .
+                </div>
+
+                <button aria-label="Open sub-menu"
+                        class="submenu-button arrow"></button>
+
+                <ul class="tech-links-menu menu_submenu">
+                    <li class="submenu_item">
+                            <a class="link-az"
+                               href="https://www.mtu.edu/current/">
+                                Students
+                            </a>
+                        </li><li class="submenu_item">
+                            <a class="link-az"
+                               href="https://www.mtu.edu/faculty-staff/">
+                                Faculty/Staff
+                            </a>
+                        </li><li class="submenu_item">
+                            <a class="link-az"
+                               href="https://www.mtu.edu/alumni/">
+                                Alumni
+                            </a>
+                        </li><li class="submenu_item">
+                            <a class="link-az"
+                               href="https://www.mtu.edu/parentsfamily/">
+                                Parents
+                            </a>
+                        </li><li class="submenu_item">
+                            <a class="link-az"
+                               href="https://www.mtu.edu/industry/">
+                                Industry
+                            </a>
+                        </li> 
+                </ul>
+            </li>
+
+            <li class="menu_item menu_has-submenu menu_item-black">
+                <div class="menu_link">
+                    Tech Links
+                </div>
+
+                <button aria-label="Open sub-menu"
+                        class="submenu-button arrow"></button>
+
+                <ul class="tech-links-menu menu_submenu">
+    <li class="submenu_item">
+        <a class="link-az" href="/a2z/index.html">
+            A to Z
+        </a>
+    </li>
+
+    <li class="submenu_item">
+        <a class="link-banweb" href="https://banweb.mtu.edu/">
+            Banweb
+        </a>
+    </li>
+
+    <li class="submenu_item">
+        <a class="link-map" href="https://map.mtu.edu/?id=1308">
+            Campus Map
+        </a>
+    </li>
+
+    <li class="submenu_item">
+        <a class="link-canvas" href="https://mtu.instructure.com/">
+            Canvas
+        </a>
+    </li>
+
+    <li class="submenu_item">
+        <a class="link-email" href="https://mail.google.com/a/mtu.edu/">
+            Email
+        </a>
+    </li>
+    
+    <li class="submenu_item">
+        <a class="link-mymt" href="https://www.mtu.edu/experience/">
+            Experience
+        </a>
+    </li>
+
+    <li class="submenu_item">
+        <a class="link-sds" href="https://www.mtu.edu/sds/">
+            Safety Data Sheets
+        </a>
+    </li>
+	
+	<li class="submenu_item">
+		<a class="link-settings" href="/site-settings/index.html">
+			Website Settings
+		</a>
+	</li>
+</ul>
+            </li>
+        </ul>
+    </nav>
+</header>         <section class="background-light-gray" aria-label="Site Title">
+            <div class="site-title-wrapper">
+               <div class="site-title">
+                  <div class="title"><span><a href="/umc/">University Marketing and Communications</a></span></div>
+                  <div id="breadcrumbs" role="navigation" aria-label="breadcrumbs" class="breadcrumbs">
+                     <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/umc/">UMC</a></li>
+                        <li><a href="/umc/services/">Services</a></li>
+                        <li><a href="/umc/services/websites/">Websites</a></li>
+                        <li><a href="/umc/services/websites/writing/">Writing for the Web</a></li>
+                        <li class="active" aria-current="page">Characters to Avoid</li>
+                     </ul>
+                  </div>
+               </div>
+               </div>
+         </section>
+         <div id="main" role="main" class="main">
+            <section id="body_section" class="body-section" aria-label="main content">
+               <div class="full-width">
+                  <div class="clearer"></div>
+                  <div class="left leftnav">
+                     <div id="toggle-left"><img class="more-menu left" height="16" width="20" aria-hidden="true" role="presentation" src="/_resources/images/icons/hamburger.svg" alt="Open"><button class="left not-button"> Also in this section</button></div>
+                     <nav aria-label="left side navigtion bar">
+                        <ul id="main_links">
+                           <li class="nav-title active"><a class="nav-title-heading" href="/umc/services/">Services</a><div class="sublinks">
+                                 <ul class="firstlevel"><li><a  href="/umc/services/marketing/" aria-label="Marketing and Creative Services">Marketing and Creative</a></li><li><a  href="/umc/services/brand/" aria-label="Brand Management Services">Brand Management</a></li><li><a  href="/umc/services/photo-video/" aria-label="Photography and Video Services">Photography and Video</a></li><li><a  href="/umc/services/media/" aria-label="News and Media Relations Services">News and Media Relations</a></li><li><a  href="/umc/services/social/" aria-label="Social Media Services">Social Media</a></li><li class="active"><a  href="/umc/services/websites/" aria-label="Websites Services">Websites</a><ul class="secondlevel"><li><a href="/umc/services/websites/advertising/">Digital Advertising</a></li><li><a href="/umc/services/websites/marketing/">Marketing and Analytics</a></li><li><a href="/umc/services/websites/requirements/">Website Requirements</a></li><li><a href="/umc/services/websites/layout/">Page Layout Recommendations</a></li><li><a href="/umc/services/websites/style-guide/">Web Style Guide</a></li><li><a href="/umc/services/websites/seo/">Search Engine Optimization</a></li><li class="active"><a href="/umc/services/websites/writing/">Writing for the Web</a></li></ul></li><li><a  href="/umc/services/print/">Print Services</a></li><li><a  href="/umc/services/mail/">Mail Services</a></li></ul>
+                              </div>
+                           </li>
+                        </ul>
+                     </nav>
+                  </div>
+                  <h1 class="pagetitle">Characters to Avoid in Filenames and Directories</h1>
+                  <div id="content" class="content">
+                     <article id="content_body" aria-label="content" class="main-content">
+                        <p>There are a number of <a href="/umc/services/websites/urls/index.html">good tips</a> to keep in mind when you name your folders, files, and web pages. These tips will
+                           help to keep your URLs short and specific to what they involve. Good file naming will
+                           also help with search engine optimization.</p>
+                        
+                        <ul>
+                           
+                           <li>Don't include spaces or other punctuation in your folder or file name. If necessary,
+                              use dashes in this manner: "my-new-file.pdf".</li>
+                           
+                           <li>Try to keep your folder or file name short while still making sense.</li>
+                           
+                           <li>Use key words.</li>
+                           
+                           <li>Use lowercase.</li>
+                           
+                           <li>Pick a filename and stick to it. Not renaming your file will keep the file indexed
+                              by any search engines.</li>
+                           
+                           <li>Try to avoid using years, version numbers, or other naming patterns that date a file.
+                              Maintenance is reduced and user experience is sustained when you can just overwrite
+                              the old file with the new one each year and keep the filename the same. However, for
+                              archiving purposes, different filenames may be important (e.g., FY09). To ensure that
+                              your new filename updates properly, please <a href="https://blogs.mtu.edu/webmaster/2019/07/page-or-site-redirects/">request a redirect</a> when you change a filename.</li>
+                           </ul>
+                        
+                        <h2>What Characters are not Allowed in Filenames?</h2>
+                        
+                        <p>You may only work in one operating system, however your web files will be viewed by
+                           numerous systems. Therefore, it becomes essential that you play it safe and avoid
+                           common illegal directory and filename characters. Some are illegal because a specific
+                           operating system doesn't support them, others because they are used as variables or
+                           reserved characters. Naming conventions are important in <em>web folders</em> as well as for <em>downloadable</em> files such as HTML files, images, PDFs, Word documents, and Excel spreadsheets. Folder
+                           and file names build out the path used for URLs.</p>
+                        
+                        <h3>Illegal Filename Characters</h3>
+                        
+                        <p>Do not use any of these common illegal characters or symbols in your filenames or
+                           folders:</p>
+                        
+                        <ul class="split">
+                           
+                           <li># pound</li>
+                           
+                           <li>% percent</li>
+                           
+                           <li>&amp; ampersand</li>
+                           
+                           <li>{ left curly bracket</li>
+                           
+                           <li>} right curly bracket</li>
+                           
+                           <li>\ back slash</li>
+                           
+                           <li>&lt; left angle bracket</li>
+                           
+                           <li>&gt; right angle bracket</li>
+                           
+                           <li>* asterisk</li>
+                           
+                           <li>? question mark</li>
+                           
+                           <li>/ forward slash</li>
+                           
+                           <li>&nbsp; blank spaces</li>
+                           
+                           <li>$ dollar sign</li>
+                           
+                           <li>! exclamation point</li>
+                           
+                           <li>' single quotes</li>
+                           
+                           <li>" double quotes</li>
+                           
+                           <li>: colon</li>
+                           
+                           <li>@ at sign</li>
+                           
+                           <li>+ plus sign</li>
+                           
+                           <li>` backtick</li>
+                           
+                           <li>| pipe</li>
+                           
+                           <li>= equal sign</li>
+                           
+                           <li>emojis</li>
+                           
+                           <li>alt codes</li>
+                           </ul>
+                        
+                        <p>In addition to forbidden characters, keep these rules in mind when choosing a folder
+                           name or filename:</p>
+                        
+                        <ul>
+                           
+                           <li>Don't start or end your filename with a space, period, hyphen, or underline.</li>
+                           
+                           <li>Keep your filenames to a reasonable length and be sure they are under 31 characters.</li>
+                           
+                           <li>Most operating systems are case sensitive; <strong>always use lowercase</strong>.</li>
+                           
+                           <li>Avoid using spaces and underscores; use a hyphen instead. This will also improve your
+                              <a href="/umc/services/websites/seo/index.html">search engine rankings</a>.</li>
+                           
+                           <li><a href="http://www.w3.org/MarkUp/html-spec/html-spec_13.html" target="_blank" rel="noopener">Non-ASCII characters</a> need to be escaped.</li>
+                           </ul>
+                        
+                        <table class="auto striped">
+                           
+                           <thead>
+                              
+                              <tr>
+                                 
+                                 <th>Bad filename</th>
+                                 
+                                 <th>Web browsers see</th>
+                                 
+                                 <th>Good filename</th>
+                                 </tr>
+                              </thead>
+                           
+                           <tbody>
+                              
+                              <tr>
+                                 
+                                 <td>F&amp;A Costs.html</td>
+                                 
+                                 <td>F&amp;amp;A%20Costs.html</td>
+                                 
+                                 <td>index.html</td>
+                                 </tr>
+                              
+                              <tr>
+                                 
+                                 <td>my PDF file#name.pdf</td>
+                                 
+                                 <td>my%20PDF%20file%23name.pdf</td>
+                                 
+                                 <td>my-pdf-file-name.pdf</td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        
+                        <p class="small margin-top-3x"><em>Note:</em> This list is not exhaustive. It is meant to help you avoid <strong>common errors in filenames</strong>. If you have any questions or need any assistance applying this information at Michigan
+                           Tech, do not hesitate to contact <a href="mailto:webmaster@mtu.edu">webmaster@mtu.edu</a>.</p>
+                        <div class="clearer"></div>
+                     </article>
+                  </div>
+                  <div class="clearer"></div>
+               </div>
+               		
+               	</section>
+         </div>
+         <div class="push"></div>
+      </div>
+      <footer xmlns:xlink="http://www.w3.org/1999/xlink" id="mtu-footer" class="mtu-footer">
+   <div class="footer__pre-nav-wrapper">
+      <ul class="no-bullet footer__pre-nav row">
+         <li class="footer-button"><a aria-label="Request Information from Michigan Tech" href="/request/index.html">Request Information</a></li>
+         <li class="footer-button"><a aria-label="Schedule a Visit at Michigan Tech" href="/visit/index.html">Schedule a Visit</a></li>
+         <li class="footer-button-give"><a aria-label="Give to Michigan Tech" href="/giving/index.html">Give</a></li>
+         <li class="footer-button-apply"><a aria-label="Apply to Michigan Tech" href="/apply/index.html">Apply</a></li>
+      </ul>
+   </div>
+   <div class="footer row">
+      <div class="footer-menu">
+         <h2 class="footer-menu__title">Admissions</h2>
+         <ul class="no-bullet">
+            <li><a href="/admissions/index.html">Undergraduate Admissions</a></li>
+            <li><a href="/gradschool/index.html">Graduate Admissions</a></li>
+            <li><a href="/globalcampus/index.html">Global Campus</a></li>
+            <li><a aria-label="Request Information from Michigan Tech" href="/request/index.html" class="footer-rfi">Request Information</a></li>
+            <li><a aria-label="Schedule a Visit to Michigan Tech" href="/visit/index.html" class="footer-visit">Schedule a Visit</a></li>
+            <li><a aria-label="Apply to Michigan Tech" href="/apply/index.html" class="footer-apply">Apply</a></li>
+            <li><a aria-label="Virtual Tours of Michigan Tech" href="/virtual-tours/index.html">Virtual Tours</a></li>
+         </ul>
+      </div>
+      <div class="footer-menu">
+         <h2 class="footer-menu__title">Study and Live</h2>
+         <ul class="no-bullet">
+            <li><a href="/majors/index.html">Degrees / Majors</a></li>
+            <li><a href="/colleges-schools/index.html">Colleges and Departments</a></li>
+            <li><a href="/library/index.html">Library</a></li>
+            <li><a href="https://events.mtu.edu/">Events Calendar</a></li>
+            <li><a href="/arts/index.html">Arts and Entertainment</a></li>
+            <li><a href="/recreation/index.html">Fitness and Recreation</a></li>
+            <li><a href="/tour/index.html">Campus and Beyond</a></li>
+         </ul>
+      </div>
+      <div class="footer-menu">
+         <h2 class="footer-menu__title">Campus Info</h2>
+         <ul class="no-bullet">
+            <li><a href="/about/index.html">About Michigan Tech</a></li>
+            <li><a href="/provost/accreditation/index.html" aria-label="University Accreditation">Accreditation</a></li>
+            <li><a href="https://www.michigantechhuskies.com/">Athletics</a></li>
+            <li><a href="https://map.mtu.edu/">Campus Map</a></li>
+            <li><a href="/directory/index.html">Campus Directory</a></li>
+            <li><a href="/jobs/index.html">Jobs at Michigan Tech</a></li>
+            <li><a href="/webcams/index.html">Webcams</a></li>
+         </ul>
+      </div>
+      <div class="footer-menu">
+         <h2 class="footer-menu__title">Policies and Safety</h2>
+         <ul class="no-bullet">
+            <li><a href="/title-ix/resources/campus-safety/index.html" aria-label="Campus Safety Information and Resources">Campus Safety Information</a></li>
+            <li><a href="/emergencycontacts/index.html">Emergency Contact Information</a></li>
+            <li><a href="/deanofstudents/concern/index.html">Report a Concern</a></li>
+            <li><a href="/publicsafety/index.html">Public Safety / Police Services</a></li>
+            <li><a href="/student-affairs/interests/student-disclosure/index.html">Student Disclosures</a></li>
+            <li><a href="/title-ix/index.html">Title IX</a></li>
+            <li><a href="/policy/policies/index.html">University Policies</a></li>
+         </ul>
+      </div>
+   </div>
+   <div class="row footer__contact">
+      <div class="footer__contact-info"><style>
+				.footer__pre-nav li:nth-of-type(1), .footer__pre-nav li:nth-of-type(2), .footer__pre-nav li:nth-of-type(3), .footer__pre-nav li:nth-of-type(4) {
+					display: block;
+				}
+			</style><h2><a class="text-gold underline-on-hover" href="/umc/">University Marketing and Communications</a></h2><div class="footer__contact-info-address">Administration Building G20<br />												1400 Townsend Drive, Houghton, Michigan 49931-1295</div><div><ul class="bar-separator no-bullet"><li class="phone"><a href="tel:9064872354">906-487-2354</a></li><li class="fax"><a href="tel:9064873553">906-487-3553</a></li><li class="email"><a href="mailto:umc@mtu.edu">umc@mtu.edu</a></li></ul></div><ul class="social-icons no-bullet"><li><a class="facebook" href="https://www.facebook.com/michigantech/" target="_blank">Facebook</a></li><li><a class="twitter" href="https://www.twitter.com/MichiganTech" target="_blank">Twitter</a></li><li><a class="linkedin" href="https://www.linkedin.com/school/michigan-technological-university/" target="_blank">Linkedin</a></li><li><a class="instagram" href="https://www.instagram.com/michigantech/" target="_blank">Instagram</a></li><li><a class="youtube" href="https://www.youtube.com/michigantech" target="_blank">Youtube</a></li><li><a class="pinterest" href="https://www.pinterest.com/michigantech/" target="_blank">Pinterest</a></li><li><a class="snapchat" href="https://www.mtu.edu/social/snapchat/" target="_blank">Snapchat</a></li></ul></div>
+      <div class="footer__contact-social">
+         <div class="mtu-logo logo"><a href="/" class="mtu-logo mtu-logo-footer"><img src="//www.mtu.edu/mtu_resources/images/logos/michigan-tech-logo-fullname-solid-old.svg" height="132" width="200" alt="Michigan Technological University" loading="lazy"></a></div>
+      </div>
+   </div>
+   <div class="footer__post-info row">
+      <div>
+         <ul class="bar-separator no-bullet aside">
+            <li><a href="/accessibility/index.html">Accessibility</a></li>
+            <li><a href="/eo-compliance/equal-opportunity-hiring/index.html">Equal Opportunity</a></li>
+            <li><a href="mailto:webmaster@mtu.edu">Email the Webmaster</a></li>
+         </ul>
+      </div>
+      <div>
+         <ul class="bar-separator no-bullet">
+            <li><a href="/tomorrowneeds/index.html"><strong>Tomorrow Needs Michigan Tech</strong></a></li>
+            <li><span id="directedit">©</span>
+               2025 <a href="https://www.mtu.edu">Michigan Technological University</a></li>
+         </ul>
+      </div>
+   </div>
+</footer>
+
+<!--[if (!IE)|(gt IE 8)]><!--> 
+	<script src="//www.mtu.edu/mtu_resources/script/n/jquery.js"></script> 
+<!--<![endif]-->
+
+<!--[if lte IE 8]>
+	<script src="//www.mtu.edu/mtu_resources/script/n/jquery-ie.js"></script>
+<![endif]-->
+
+<script src="//www.mtu.edu/mtu_resources/assets/js/app.js"></script>
+<script>
+            var OUC = OUC || {};
+            OUC.globalProps = OUC.globalProps || {};
+            OUC.props = OUC.props || {};
+            
+            
+                OUC.globalProps['path'] = "/umc/services/websites/writing/characters-avoid/index.html";
+                OUC.globalProps['domain'] = "https://www.mtu.edu";
+                OUC.globalProps['index-file'] = "index";
+                OUC.globalProps['extension'] = "html";
+            
+            var key;
+            for (key in OUC.globalProps) {
+            OUC.props[key] = OUC.globalProps[key];
+            }
+        </script>
+      <script>
+	$(function(){
+		var $domain      = OUC.globalProps['domain'];
+		var $currentPage = OUC.globalProps['path'];
+		var $extension   = OUC.globalProps['extension'];
+		var $indexFile   = OUC.globalProps['index-file'];
+		
+		$currentPage = $domain + $currentPage.replace(/index\.\w+/i, '');
+		
+		
+		$('.leftnav .sublinks ul li').each(function(index, anchorTag){
+
+			$link =  $("> a", this).attr('href');
+			$link = $domain+$link.replace(/index\.\w+/i, '');
+			var $count1 = ($link.match(/\//g) || []).length;
+			
+			// check if link matches current page
+			/*if ($currentPage.includes($link) && $count1 > 4)
+			{
+				$(this).addClass('active');
+				// break out of the loop
+				return false;
+			}*/
+		});
+
+		$('.category-nav-bar > li.main-nav-item').each(function(index, anchorTag){
+
+			$link =  $("a", this).attr('href');
+			if($link) {
+				$link = $domain+$link.replace(/index\.\w+/i, '');
+			}
+			// check if link matches current page
+			if ($currentPage.includes($link))
+			{
+				$(this).addClass('in');
+				// break out of the loop
+				return false;
+			}
+		});
+	});
+</script>
+<div id="hidden" style="display:none;"><a id="de" href="https://a.cms.omniupdate.com/11/?skin=oucampus&amp;account=MTU&amp;site=www&amp;action=de&amp;path=/umc/services/websites/writing/characters-avoid/index.pcf">©</a></div>
+   </body>
+</html>
