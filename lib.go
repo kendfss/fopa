@@ -1,6 +1,8 @@
 package fopa
 
 import (
+	"path/filepath"
+
 	"github.com/kendfss/fopa/internal"
 )
 
@@ -56,4 +58,21 @@ func Cleanf(path, fill string) string {
 // ForbiddenChars returns a slice of the characters this library forbids
 func ForbiddenChars() []string {
 	return internal.ForbiddenChars
+}
+
+// SplitClean splits the path before cleaning each segment
+func SplitClean(path string) string {
+	parts := filepath.SplitList(path)
+	for i, part := range parts {
+		parts[i] = Clean(part)
+	}
+	return filepath.Join(parts...)
+}
+
+// Join cleans each segment before joining the lot
+func Join(parts ...string) string {
+	for i, part := range parts {
+		parts[i] = Clean(part)
+	}
+	return filepath.Join(parts...)
 }
