@@ -7,13 +7,10 @@ prefix?=~/go/bin
 internalFlags?="-s -w -X main"
 default: test
 
-all: build install
+all: fetch test install
 
 fetch:
 	cd $(root)/internal; go run ./fetch
-	# go run ./internal/fetch
-	# go run $(root)/internal/fetch
-	# cd $(root)
 
 generate:
 	go generate ./...
@@ -21,7 +18,7 @@ generate:
 test: generate
 	go test -v ./...
 
-build:
+build: 
 	go build -o $(buildDir)/$(name) -ldflags=$(ldflags) $(srcDir)
 
 install: build

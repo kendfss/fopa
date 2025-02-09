@@ -19,11 +19,10 @@ var (
 )
 
 func init() {
-	flag.BoolVar(&splitFlag, "s", false, "split path before sanitizing?")
+	flag.BoolVar(&splitFlag, "s", false, "split path(s) before sanitizing?")
 	flag.StringVar(&fopa.Filler, "f", fopa.Filler, "fill character to remove consecutive occurences of")
 	flag.Usage = func() {
-		fmt.Fprintf(flag.CommandLine.Output(), "Usage of %s:\n", os.Args[0])
-		fmt.Fprintf(flag.CommandLine.Output(), "version %s:\n", version)
+		fmt.Fprintf(flag.CommandLine.Output(), "Usage of %s %s:\n", os.Args[0], version)
 		flag.PrintDefaults()
 	}
 }
