@@ -13,7 +13,7 @@ import (
 func main() {
 	response := but.Mustv(http.Get(internal.SourceURL))
 	defer response.Body.Close()
-	but.Must(os.Mkdir(filepath.Dir(internal.SourceFilePath), os.ModePerm|os.ModeDir))
+	but.Must(os.MkdirAll(filepath.Dir(internal.SourceFilePath), os.ModePerm|os.ModeDir))
 	sourceFile := but.Mustv(os.Create(internal.SourceFilePath))
 	defer sourceFile.Close()
 	_ = but.Mustv(io.Copy(sourceFile, response.Body))

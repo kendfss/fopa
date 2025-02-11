@@ -3,6 +3,26 @@
 
 package internal
 
+const Pattern = "#|%|&|\\{|\\}|\\\\|<|>|\\*|\\?|/|\\$|!|'|\"|\\:|@|\\+|`|\\||="
+
+var Specials = map[string]struct{}{
+	"$": {},
+	"(": {},
+	")": {},
+	"*": {},
+	"+": {},
+	".": {},
+	":": {},
+	"?": {},
+	"[": {},
+	"\\": {},
+	"]": {},
+	"^": {},
+	"{": {},
+	"|": {},
+	"}": {},
+}
+
 var ForbiddenRules = []Rule{
 	{Symb: "#", Desc: "pound"},
 	{Symb: "%", Desc: "percent"},

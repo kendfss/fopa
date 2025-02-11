@@ -6,12 +6,6 @@ import (
 	"github.com/kendfss/fopa/internal"
 )
 
-// type Rule struct {
-// 	Symb, Desc string
-// }
-
-// var forbiddenRules []Rule
-
 var Filler = "_"
 
 // remove illegal characters from a file path

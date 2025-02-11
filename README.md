@@ -126,11 +126,12 @@ The following characters are automatically replaced:
 
 ## License
 
-[BSD](./LICENSE)
+[BSD 3-Clause](./LICENSE)
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+The overall development goal is to make it so that everything you need in terms of scraping and code generation should be automated, please write with that in mind and feel free to raise an issue if I've failed at that.
 
 ## todo
 - [ ] emojis

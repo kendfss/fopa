@@ -3,12 +3,15 @@ package fopa
 import (
 	"fmt"
 	"regexp"
+
+	"github.com/kendfss/fopa/internal"
 )
 
-const pat = "#|%|&|\\{|\\}|\\|<|>|\\*|\\?|/| |\\$|!|'|\"|:|@|\\+|`|\\||=" + "\\s"
+// const DefaultPattern = "#|%|&|\\{|\\}|\\|<|>|\\*|\\?|/| |\\$|!|'|\"|:|@|\\+|`|\\||=" + "\\s"
+const DefaultPattern = internal.Pattern + `|\s`
 
 func sanitizef(arg, fill string) string {
-	re := regexp.MustCompile(pat)
+	re := regexp.MustCompile(DefaultPattern)
 	return re.ReplaceAllString(arg, fill)
 }
 
