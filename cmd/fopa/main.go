@@ -42,8 +42,8 @@ func main() {
 	}
 	oldNames := make([]string, 0, len(args))
 	newNames := make([]string, 0, len(args))
-	oldLens, newLens := make([]int, 0, len(args)), make([]int, 0, len(args))
-	longestOld, longestNew := 0, 0
+	oldLens := make([]int, 0, len(args))
+	longestOld := 0
 	for _, old := range args {
 		if !noTrimFlag {
 			old = strings.TrimSpace(old)
@@ -61,16 +61,14 @@ func main() {
 				}
 				newNames = append(newNames, fopa.Clean(part))
 				oldLens = append(oldLens, runeLen(old))
-				newLens = append(newLens, runeLen(new))
-				longestOld, longestNew = max(longestOld, oldLens[len(oldLens)-1]), max(longestNew, newLens[len(newLens)-1])
+				longestOld = max(longestOld, oldLens[len(oldLens)-1])
 			}
 			continue
 		}
 		oldNames = append(oldNames, old)
 		newNames = append(newNames, fopa.Clean(new))
 		oldLens = append(oldLens, runeLen(old))
-		newLens = append(newLens, runeLen(new))
-		longestOld, longestNew = max(longestOld, oldLens[len(oldLens)-1]), max(longestNew, newLens[len(newLens)-1])
+		longestOld = max(longestOld, oldLens[len(oldLens)-1])
 	}
 	for i, old := range oldNames {
 		new := newNames[i]
@@ -81,7 +79,6 @@ func main() {
 			}
 		}
 		old += strings.Repeat(" ", longestOld-oldLens[i])
-		new += strings.Repeat(" ", longestNew-newLens[i])
 		fmt.Println(old, "->", new)
 	}
 }
