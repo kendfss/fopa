@@ -1,6 +1,6 @@
 module github.com/kendfss/fopa
 
-go 1.23.4
+go 1.24.0
 
 require (
 	github.com/antchfx/htmlquery v1.3.4
@@ -8,7 +8,7 @@ require (
 	github.com/kendfss/but v1.1.0
 	github.com/kendfss/hcat v1.0.0
 	github.com/kendfss/pipe v1.0.0
-	golang.org/x/net v0.34.0
+	golang.org/x/net v0.47.0
 )
 
 require (
@@ -20,6 +20,6 @@ require (
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/yosssi/gohtml v0.0.0-20201013000340-ee4748c638f4 // indirect
-	golang.org/x/sys v0.29.0 // indirect
-	golang.org/x/text v0.21.0 // indirect
+	golang.org/x/sys v0.38.0 // indirect
+	golang.org/x/text v0.31.0 // indirect
 )

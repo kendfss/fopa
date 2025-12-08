@@ -83,6 +83,7 @@ func main() {
 	}
 }
 
+// exists checks if a file can be found on the local filesystem
 func exists(path string) bool {
 	_, err := os.Stat(path)
 	if err != nil {
@@ -91,6 +92,7 @@ func exists(path string) bool {
 	return true
 }
 
+// logf prints a line-feed-terminated string to stderr
 func logf(msg string, args ...any) {
 	if len(msg) > 0 && msg[len(msg)-1] != '\n' {
 		msg += "\n"
@@ -98,15 +100,18 @@ func logf(msg string, args ...any) {
 	fmt.Fprintf(os.Stderr, msg, args...)
 }
 
+// fatal prints a message and exits the program with status 1
 func fatal(msg string, args ...any) {
 	logf(msg, args...)
 	os.Exit(1)
 }
 
+// runeLen returns the number of runes in s
 func runeLen(s string) int {
 	return len([]rune(s))
 }
 
+// max determines the larger of two ints
 func max(a, b int) int {
 	if b > a {
 		return b
