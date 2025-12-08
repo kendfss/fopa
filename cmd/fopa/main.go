@@ -45,13 +45,13 @@ func main() {
 	oldLens, newLens := make([]int, 0, len(args)), make([]int, 0, len(args))
 	longestOld, longestNew := 0, 0
 	for _, old := range args {
-		new := old
 		if !noTrimFlag {
-			new = strings.TrimSpace(old)
+			old = strings.TrimSpace(old)
 		}
-		if inPlaceFlag && !exists(new) {
+		if inPlaceFlag && !exists(old) {
 			fatal("file not found: %q", old)
 		}
+		new := old
 		if splitFlag {
 			parts := filepath.SplitList(new)
 			for _, part := range parts {
