@@ -1,13 +1,14 @@
 module github.com/kendfss/fopa
 
-go 1.24.0
+go 1.25.1
 
 require (
 	github.com/antchfx/htmlquery v1.3.4
 	github.com/k0kubun/pp v3.0.1+incompatible
 	github.com/kendfss/but v1.1.0
 	github.com/kendfss/hcat v1.0.0
-	github.com/kendfss/pipe v1.0.0
+	github.com/kendfss/pipe v1.2.0
+	github.com/unilibs/uniwidth v0.1.0
 	golang.org/x/net v0.47.0
 )
 
